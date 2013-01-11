@@ -361,6 +361,7 @@ public final class TranslatorTypes
 		addTranslator(TYPE_TIME, "DPTXlatorTime", "Time (main type 10)");
 		addTranslator(TYPE_DATE, "DPTXlatorDate", "Date (main type 11)");
 		addTranslator(TYPE_4OCTET_UNSIGNED, "DPTXlator4ByteUnsigned", "4 octet unsigned value (main type 12)");
+		addTranslator(TYPE_4OCTET_FLOAT, "DPTXlator4ByteFloat", "4 octet float value (main type 14)");
 		addTranslator(TYPE_STRING, "DPTXlatorString", "String (main type 16)");
 		addTranslator(TYPE_DATE_TIME, "DPTXlatorDateTime", "Date with time (main type 19)");
 		addTranslator(TYPE_SCENE, "DPTXlatorScene", "Scene (main type 17)");
