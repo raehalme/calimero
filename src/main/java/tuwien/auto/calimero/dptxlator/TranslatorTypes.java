@@ -180,6 +180,18 @@ public final class TranslatorTypes
 	public static final int TYPE_STRING = 16;
 
 	/**
+	 * DPT main number for <b>scene</b>, number = {@value #TYPE_SCENE}.
+	 * <p>
+	 */
+	public static final int TYPE_SCENE = 17;
+	
+	/**
+	 * DPT main number for <b>scene control</b>, number = {@value #TYPE_SCENE_CONTROL}.
+	 * <p>
+	 */
+	public static final int TYPE_SCENE_CONTROL = 18;
+	
+	/**
 	 * DPT main number for <b>date/time</b>, number = {@value #TYPE_DATE_TIME}.
 	 * <p>
 	 */
@@ -342,21 +354,17 @@ public final class TranslatorTypes
 	static {
 		map = Collections.synchronizedMap(new HashMap(20));
 		addTranslator(TYPE_BOOLEAN, "DPTXlatorBoolean", "Boolean (main type 1)");
-		addTranslator(TYPE_3BIT_CONTROLLED, "DPTXlator3BitControlled",
-			"3 Bit controlled (main type 3)");
-		addTranslator(TYPE_8BIT_UNSIGNED, "DPTXlator8BitUnsigned",
-			"8 Bit unsigned value (main type 5)");
-		addTranslator(TYPE_2OCTET_UNSIGNED, "DPTXlator2ByteUnsigned",
-			"2 octet unsigned value (main type 7)");
-		addTranslator(TYPE_2OCTET_FLOAT, "DPTXlator2ByteFloat",
-			"2 octet float value (main type 9)");
+		addTranslator(TYPE_3BIT_CONTROLLED, "DPTXlator3BitControlled", "3 Bit controlled (main type 3)");
+		addTranslator(TYPE_8BIT_UNSIGNED, "DPTXlator8BitUnsigned", "8 Bit unsigned value (main type 5)");
+		addTranslator(TYPE_2OCTET_UNSIGNED, "DPTXlator2ByteUnsigned", "2 octet unsigned value (main type 7)");
+		addTranslator(TYPE_2OCTET_FLOAT, "DPTXlator2ByteFloat", "2 octet float value (main type 9)");
 		addTranslator(TYPE_TIME, "DPTXlatorTime", "Time (main type 10)");
 		addTranslator(TYPE_DATE, "DPTXlatorDate", "Date (main type 11)");
-		addTranslator(TYPE_4OCTET_UNSIGNED, "DPTXlator4ByteUnsigned",
-			"4 octet unsigned value (main type 12)");
+		addTranslator(TYPE_4OCTET_UNSIGNED, "DPTXlator4ByteUnsigned", "4 octet unsigned value (main type 12)");
 		addTranslator(TYPE_STRING, "DPTXlatorString", "String (main type 16)");
-		addTranslator(TYPE_DATE_TIME, "DPTXlatorDateTime",
-			"Date with time (main type 19)");
+		addTranslator(TYPE_DATE_TIME, "DPTXlatorDateTime", "Date with time (main type 19)");
+		addTranslator(TYPE_SCENE, "DPTXlatorScene", "Scene (main type 17)");
+		addTranslator(TYPE_SCENE_CONTROL, "DPTXlatorScene", "SceneControl (main type 18)");
 	}
 
 	private static void addTranslator(int main, String className, String desc)
