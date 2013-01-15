@@ -54,6 +54,8 @@ import tuwien.auto.calimero.log.LogLevel;
  * <dd>no prefix for decimal numeral
  * <dd><code>0x</code>, <code>0X</code> or <code>#</code> for hexadecimal
  * <dd><code>0</code> for octal numeral
+ * 
+ * @author Victor Belov (openhab.org)
  */
 public class DPTXlator4ByteFloat extends DPTXlator
 {
