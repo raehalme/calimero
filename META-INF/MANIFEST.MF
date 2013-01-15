@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-Bundle-Name: calimero knx lib
-Bundle-Vendor: tuwien
+Bundle-Name: Calimero KNX Core Library
+Bundle-Vendor: org.openhab
 Bundle-Version: 1.0.0.qulifier
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: tuwien.auto.calimero;singleton:=true
+Bundle-SymbolicName: org.openhab.at.tuwien.auto.calimero;singleton:=true
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ClassPath: .
 Export-Package: tuwien.auto.calimero,
