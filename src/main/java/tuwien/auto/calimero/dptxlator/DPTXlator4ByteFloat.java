@@ -59,14 +59,15 @@ import tuwien.auto.calimero.log.LogLevel;
  */
 public class DPTXlator4ByteFloat extends DPTXlator
 {
+
     /**
-     * DPT ID 14.056, Power; values from <b>0</b> to <b>4294967295</b> power
-     * in Watts.
+     * DPT ID 14.001, Acceleration Angular; values from <b>0</b> to <b>4294967295</b> current
+     * in rad s^-2.
      * <p>
      */
-    public static final DPT DPT_VALUE_4_POWER =
-            new DPT("14.056", "Power", "0", "4294967295", "W");
-
+    public static final DPT DPT_VALUE_4_ACCELERATION_ANGULAR =
+            new DPT("14.001", "Acceleration Angular", "0", "4294967295", "rad s^-2");
+    
     /**
      * DPT ID 14.019, Electric Current; values from <b>0</b> to <b>4294967295</b> current
      * in Ampers.
@@ -91,15 +92,23 @@ public class DPTXlator4ByteFloat extends DPTXlator
     public static final DPT DPT_VALUE_4_FREQUENCY =
             new DPT("14.033", "Frequency", "0", "4294967295", "Hz");
 
+    /**
+     * DPT ID 14.056, Power; values from <b>0</b> to <b>4294967295</b> power
+     * in Watts.
+     * <p>
+     */
+    public static final DPT DPT_VALUE_4_POWER =
+            new DPT("14.056", "Power", "0", "4294967295", "W");
 
-	private static final Map types;
+
+	private static final Map<String, DPT> types;
 
 	static {
-		types = new HashMap();
-		types.put(DPT_VALUE_4_POWER.getID(), DPT_VALUE_4_POWER);
+		types = new HashMap<String, DPT>();
 		types.put(DPT_VALUE_4_ELECTRIC_CURRENT.getID(), DPT_VALUE_4_ELECTRIC_CURRENT);
 		types.put(DPT_VALUE_4_ELECTRIC_POTENTIAL.getID(), DPT_VALUE_4_ELECTRIC_POTENTIAL);
 		types.put(DPT_VALUE_4_FREQUENCY.getID(), DPT_VALUE_4_FREQUENCY);
+		types.put(DPT_VALUE_4_POWER.getID(), DPT_VALUE_4_POWER);
 	}
 
 	/**
@@ -141,18 +150,6 @@ public class DPTXlator4ByteFloat extends DPTXlator
 	{
 		data = toDPT(value, new short[4], 0);
 	}
-
-	/**
-	 * Returns the first translation item as unsigned 32 Bit value.
-	 * <p>
-	 * 
-	 * @return unsigned 32 Bit value using type long
-	 * @see #getType()
-	 */
-/*	public final long getValueUnsigned()
-	{
-		return fromDPT(0);
-	}*/
 	
 	public final Float getValueFloat()
 	{
@@ -208,7 +205,7 @@ public class DPTXlator4ByteFloat extends DPTXlator
 	/* (non-Javadoc)
 	 * @see tuwien.auto.calimero.dptxlator.DPTXlator#getSubTypes()
 	 */
-	public final Map getSubTypes()
+	public final Map<String, DPT> getSubTypes()
 	{
 		return types;
 	}
@@ -217,7 +214,7 @@ public class DPTXlator4ByteFloat extends DPTXlator
 	 * @return the subtypes of the 4-byte unsigned translator type
 	 * @see DPTXlator#getSubTypesStatic()
 	 */
-	protected static Map getSubTypesStatic()
+	protected static Map<String, DPT> getSubTypesStatic()
 	{
 		return types;
 	}
@@ -241,7 +238,7 @@ public class DPTXlator4ByteFloat extends DPTXlator
 	{
 		try {
 			// Doing back trick here. Make a 4 octet Long from bits of Float.
-			Long result = Long.valueOf(Float.floatToIntBits(Float.parseFloat(removeUnit(value))));
+			Long.valueOf(Float.floatToIntBits(Float.parseFloat(removeUnit(value))));
 			toDPT(Long.decode(removeUnit(value)).longValue(), dst, index);
 		}
 		catch (final NumberFormatException e) {
@@ -261,4 +258,5 @@ public class DPTXlator4ByteFloat extends DPTXlator
 		dst[i + 3] = (short) (value & 0xFF);
 		return dst;
 	}
+	
 }
